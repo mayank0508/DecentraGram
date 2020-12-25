@@ -4,6 +4,7 @@ contract Decentragram {
  string public name = "Decentragram";
  
   // Storre Images
+  uint public imageCount = 0;
 mapping(uint => Image) public images;
 
  struct Image {
@@ -14,9 +15,15 @@ mapping(uint => Image) public images;
      address payable author;
  }
  // Create images
- function uploadImage() public {
-     images[1] = Image(1, 'abc123', 'Hello, world!', 0, address(0x0) );
+ function uploadImage(string memory _imgHash, string memory _description) public {
+
+    // Increment image id
+    imageCount = imageCount ++;
+        
+     // Add image to contract
+     images[1] = Image(imageCount, _imgHash, _description, 0, address(0x0));
  }
+
  // Tip Images
 
 }
