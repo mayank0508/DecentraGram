@@ -24,7 +24,18 @@ mapping(uint => Image) public images;
  );
  // Create images
  function uploadImage(string memory _imgHash, string memory _description) public {
+    // Make sure that the image Hash exits
+    
+    require(bytes(_imgHash).length > 0);
 
+    // Make sure that the image decription exits
+    
+    require(bytes(_description).length > 0);
+
+    // Make sure that uploader dress exits
+    
+    require(msg.sender != address(0x0));
+ 
     // Increment image id
     imageCount ++;
         
