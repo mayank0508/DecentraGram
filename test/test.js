@@ -28,6 +28,12 @@ contract('Decentragram', ([deployer, author, tipper]) => {
 
   describe('images', async () => {
     let result
+    const hash = 'abc123'
+
+    before(async () => {
+      result = await decentragram.uploadImage(hash, 'Image description', { from: author });
+      imageCount = await decentragram.imageCount()
+    })
 
     it('creates images', async () => {
       result = await decentragram.uploadImage();

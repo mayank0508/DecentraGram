@@ -21,7 +21,10 @@ mapping(uint => Image) public images;
     imageCount = imageCount ++;
         
      // Add image to contract
-     images[1] = Image(imageCount, _imgHash, _description, 0, address(0x0));
+     images[1] = Image(imageCount, _imgHash, _description, 0, msg.sender);
+
+     // Trigger on event
+     emit ImageCreated(imageCount, _imgHash, _description, 0, msg.sender);
  }
 
  // Tip Images
