@@ -32,17 +32,25 @@ async loadBlockchainData() {
   // Load account
   const accounts = await web3.eth.getAccounts()
   this.setState({ account: accounts[0] })
+// Network ID
+  const networkID = await web3.eth.net.getId()
+  const networkData = Decentragram.networks[networkID]
+  if(networkData){
+    const decentragram = web3.eth.Contract(Decentragram.abi, networkData.address)
+    this.setState({ decentragram })
 
-  const decentragram = web3.eth.Contract(abi, address)
-
+  } else {
+   window.alert('Decentregram contraact has not been depalyoed network') 
+  }
 }
-
-  
 
   constructor(props) {
     super(props)
     this.state = {
       account: '',
+      decentragram: null,
+      images: [],
+      loading: true
     }
   }
 
