@@ -40,6 +40,8 @@ async loadBlockchainData() {
     this.setState({ decentragram })
     const imageCount = await decentragram.methods.imageCount().call()
     this.setState({ imageCount })
+
+  this.setState({ loading: false})  
   } else {
    window.alert('Decentregram contraact has not been depalyoed network') 
   }
