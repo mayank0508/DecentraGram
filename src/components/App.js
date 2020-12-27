@@ -38,7 +38,8 @@ async loadBlockchainData() {
   if(networkData){
     const decentragram = web3.eth.Contract(Decentragram.abi, networkData.address)
     this.setState({ decentragram })
-
+    const imageCount = await decentragram.methods.imageCount().call()
+    this.setState({ imageCount })
   } else {
    window.alert('Decentregram contraact has not been depalyoed network') 
   }
