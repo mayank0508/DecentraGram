@@ -12,6 +12,7 @@ class Main extends Component {
               <p>&nbsp;</p>
 
               <h2>Share Image</h2>
+              
               <form onSubmit={(event) => {
                 event.preventDefault()
                 const description = this.imageDescription.value
@@ -28,7 +29,7 @@ class Main extends Component {
                         placeholder="Image description..."
                         required />
                   </div>
-                <button type="submit" class="btn btn-primary btn-block btn-lg">Upload!</button>
+                <button type="submit" className="btn btn-primary btn-block btn-lg">Upload!</button>
               </form>
 
               <p>&nbsp;</p>
